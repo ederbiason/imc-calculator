@@ -16,7 +16,7 @@ export default function ResultImc(props) {
                 {/* Se o props.resultImc for igual a nulo, então retorna o touchable*/}
                 {props.resultImc != null ?
                 <TouchableOpacity 
-                    onPress={onShare()}
+                    onPress={onShare}
                     style={styles.shared}
                 >
                     <Text style={styles.sharedText}>Share</Text>
