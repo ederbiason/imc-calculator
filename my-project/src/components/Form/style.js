@@ -18,6 +18,7 @@ const styles = StyleSheet.create({
   flex: 1,
   width:"100%",
   height:"100%",
+  alignItems:'center',
  },
  form: {
   width:'100%',
@@ -62,7 +63,13 @@ const styles = StyleSheet.create({
  exhibitionResultImc: {
   width:"100%",
   height:"50%",
- }
+ },
+ resultImcItem: {
+
+ },
+ textResultItemList: {
+     
+ },
 });
 
 // Para ser reconhecido dentro do index

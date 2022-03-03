@@ -6,7 +6,8 @@ import {
     TextInput, 
     View, 
     Text, 
-    TouchableOpacity } from "react-native"
+    TouchableOpacity, 
+    FlatList} from "react-native"
 import ResultImc from './ResultImc/'
 import styles from "./style"
 
@@ -18,10 +19,13 @@ const [messageImc, setMessageImc] = useState(null)
 const [imc, setImc] = useState(null)
 const [textButton, setTextButton] = useState("Calcular")
 const [errorMessage, setErrorMessage] = useState(null)
+const [imcList, setImcList] = useState([])
 
 function imcCalculator(){
     let heightFormat = height.replace(',',".")
-    return setImc((weight/(heightFormat*heightFormat)).toFixed(2))
+    let totalImc = (weight/(heightFormat*heightFormat)).toFixed(2)
+    setImcList((arr) => [...arr, {id: new Date().getTime(), imc: totalImc}])
+    setImc(totalImc)
 }
 
 function verificationImc() {
@@ -93,6 +97,26 @@ function validationImc() {
                     </TouchableOpacity>
                 </View>
                 }
+                <FlatList 
+                style={styles.listImcs}
+                // data é um array; reverse pega sempre o ultimo numero calculado 
+                data={imcList.reverse()}
+                // para cada item do data, o renderitem vai carregar oq tem dentro dele
+                renderItem={({item}) => {
+                    return (
+
+                        <Text style={styles.resultImcItem}>
+                            <Text style={styles.textResultItemList}>Resultado IMC = </Text>
+                            {item.imc}
+                        </Text>
+
+                    )
+                }}
+                // para cada item que voce vai imprimir, ele vai pedir uma chave unica, o keyExtractor vai passar a chave que queremos que ele usa
+                keyExtractor={(item) => {
+                    item.id
+                }}
+                />
             </View>
         </View>
     );
