@@ -98,6 +98,8 @@ function validationImc() {
                 </View>
                 }
                 <FlatList 
+                // para sumir a barra vertical na rolagem
+                showsVerticalScrollIndicator={false}
                 style={styles.listImcs}
                 // data é um array; reverse pega sempre o ultimo numero calculado 
                 data={imcList.reverse()}
