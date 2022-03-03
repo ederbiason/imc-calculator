@@ -14,6 +14,11 @@ const styles = StyleSheet.create({
   paddingTop:15,
   marginTop:10,
  },
+ formContent: {
+  flex: 1,
+  width:"100%",
+  height:"100%",
+ },
  form: {
   width:'100%',
   height:'auto',
@@ -53,6 +58,10 @@ const styles = StyleSheet.create({
   color:"red",
   fontWeight:"bold",
   paddingLeft:20,
+ },
+ exhibitionResultImc: {
+  width:"100%",
+  height:"50%",
  }
 });
 

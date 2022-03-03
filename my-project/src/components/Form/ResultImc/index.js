@@ -13,21 +13,15 @@ export default function ResultImc(props) {
     return(
         <View style={styles.resultImc}>
             <View style={styles.boxShareButton}>
-                {/* Se o props.resultImc for igual a nulo, então retorna o touchable*/}
-                {props.resultImc != null ?
+                <Text style={styles.information}>{props.messageResultImc}</Text>
+                <Text style={styles.numberImc}>{props.resultImc}</Text>
                 <TouchableOpacity 
                     onPress={onShare}
                     style={styles.shared}
                 >
-                    <Text style={styles.sharedText}>Share</Text>
+                <Text style={styles.sharedText}>Share</Text>
                 </TouchableOpacity>
-                // Se não, ele retorna uma view vazia
-                :
-                <View/>
-                }
             </View>
-            <Text style={styles.information}>{props.messageResultImc}</Text>
-            <Text style={styles.numberImc}>{props.resultImc}</Text>
         </View>
     );
 }
